@@ -1,7 +1,16 @@
-#lua-mongoose
-一个lua的http server库，基于[mongoose](https://github.com/cesanta/mongoose)。
+# lua-mongoose
+lua-mongoose is a Lua binding library for [Mongoose](https://github.com/cesanta/mongoose).
 
-用起来是这样的：
+#### Getting and installing
+
+```sh
+$ git clone https://github.com/sodomon2/lua-mongoose.git
+$ cd lua-mongoose
+$ make
+$ make install # or 'sudo make install'
+```
+
+Example：
 ```lua
 local mongoose = require("mongoose")
 
@@ -22,5 +31,3 @@ while true do
 end
 
 ```
-看起来是这样的：
-![image](https://raw.githubusercontent.com/shuax/lua-mongoose/master/screenshot.png)
