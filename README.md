@@ -10,7 +10,8 @@ $ make
 $ make install # or 'sudo make install'
 ```
 
-Example：
+#### Example
+
 ```lua
 local mongoose = require("mongoose")
 
