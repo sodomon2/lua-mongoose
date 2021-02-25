@@ -1,5 +1,11 @@
 #include "lua-mongoose.h"
 
+#if LUA_VERSION_NUM == 501
+#include <assert.h>
+#  define luaL_newlib(L,l) (lua_newtable(L), luaL_register(L,NULL,l))
+#  define luaL_setfuncs(L,l,n) (assert(n==0), luaL_register(L,NULL,l))
+#endif
+
 static void build_param(lua_State *L, struct mg_connection *conn)
 {
     lua_newtable(L);
@@ -112,7 +118,7 @@ int luaopen_mongoose(lua_State *L)
 
 void luaL_module(lua_State *L, const char *name, lua_CFunction f)
 {
-    luaL_getsubtable(L, LUA_REGISTRYINDEX, "_PRELOAD");
+    lua_settable(L, -3);
     lua_pushcfunction(L, f);
     lua_setfield(L, -2, name);
 }
